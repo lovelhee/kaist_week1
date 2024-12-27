@@ -1,0 +1,38 @@
+[
+  {
+    "name": "메리츠화재",
+    "phoneNumber": "051-123-4567",
+    "category": "보험사",
+    "imageUrl": "https://play-lh.googleusercontent.com/aIuW8DpY71bW9grBX3xh9EkQ-yYifV6YVSemVGdDucEEwP_d5Gb5QYnNuTZhEt_WMw"
+  },
+  {
+    "name": "AXA 손해보험",
+    "phoneNumber": "051-987-6543",
+    "category": "보험사",
+    "imageUrl": "https://img.shoppingntmall.com/goods/674/12377674_h.jpg"
+  },
+  {
+    "name": "KB 손해보험",
+    "phoneNumber": "051-654-3210",
+    "category": "보험사",
+    "imageUrl": "https://img.seoul.co.kr/img/upload/2023/06/12/SSC_20230612065910.jpg"
+  },
+  {
+    "name": "한국도로공사",
+    "phoneNumber": "1588-2504",
+    "category": "도로 관리",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MjdfMTY2%2FMDAxNjE5NTE3NDg3ODU2.lNiSWdo1PTvIxUXfJ5LLRNYVbe_SiMjg2Tms1gA4QM4g.DGTCt4Tcf2jjY5XV0MUJ3P15R2-mKuaQHye5yaFRpmQg.PNG.5710132%2FK-1949.png&type=a340"
+  },
+  {
+    "name": "퍼스트대형렉카",
+    "phoneNumber": "051-392-4928",
+    "category": "견인 업체",
+    "imageUrl": "https://postfiles.pstatic.net/MjAyNDAxMDZfMTM4/MDAxNzA0NTA1NTIxNzA0.X6SqLEN-qxe6CO2-1bcd-cb5kNw94bpP21wJxt0faFYg.25j3eQ85MV3hL5jj0pskAskay0dCkJcTqxHzmsSb2Pwg.JPEG.inbyungnam1/KakaoTalk_Photo_2024-01-06-10-17-01_002.jpeg?type=w466"
+  },
+  {
+    "name": "블루핸즈 현대서비스 ",
+    "phoneNumber": "051-472-4928",
+    "category": "정비소",
+    "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_84%2F1441030037196LcC0P_JPEG%2F116463555736769_0.jpg"
+  }
+]

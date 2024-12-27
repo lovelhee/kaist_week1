@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/ivLogo"
-            android:layout_width="122dp"
-            android:layout_height="50.31dp"
+            android:layout_width="110dp"
+            android:layout_height="38.31dp"
             android:layout_gravity="center"
             android:src="@drawable/ic_logo"/>
     </androidx.appcompat.widget.Toolbar>
