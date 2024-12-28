@@ -18,6 +18,7 @@
     <EditText
         android:layout_marginTop="20dp"
         android:id="@+id/etName"
+        android:fontFamily="@font/title_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="이름" />
@@ -25,6 +26,7 @@
     <EditText
         android:layout_marginTop="20dp"
         android:id="@+id/etPhoneNumber"
+        android:fontFamily="@font/title_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="전화번호"
@@ -40,6 +42,7 @@
 
         <RadioButton
             android:layout_weight="1"
+            android:fontFamily="@font/title_light"
             android:id="@+id/radioInsurance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,6 +51,7 @@
 
         <RadioButton
             android:layout_weight="1"
+            android:fontFamily="@font/title_light"
             android:id="@+id/radioRoadManagement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +60,7 @@
 
         <RadioButton
             android:layout_weight="1"
+            android:fontFamily="@font/title_light"
             android:id="@+id/radioTowing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,6 +70,7 @@
         <RadioButton
             android:layout_weight="1"
             android:id="@+id/radioRepair"
+            android:fontFamily="@font/title_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="정비소" />

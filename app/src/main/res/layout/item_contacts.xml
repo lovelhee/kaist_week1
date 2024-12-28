@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="이름"
-            android:textStyle="bold"
+            android:fontFamily="@font/paperlogy_6semibold"
             android:text=""
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -66,6 +66,7 @@
         android:hint="종류"
         android:textSize="14sp"
         android:textColor="@color/black"
+        android:fontFamily="@font/paperlogy_3light"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
