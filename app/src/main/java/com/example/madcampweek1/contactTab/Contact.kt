@@ -1,4 +1,4 @@
-package com.example.madcampweek1
+package com.example.madcampweek1.contactTab
 
 data class Contact(
     val name: String,

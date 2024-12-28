@@ -1,4 +1,4 @@
-package com.example.madcampweek1
+package com.example.madcampweek1.contactTab
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.madcampweek1.R
 
 class ContactsAdapter(private val contactList: List<Contact>) :
     RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
