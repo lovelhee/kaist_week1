@@ -2,6 +2,7 @@ package com.example.madcampweek1.contactTab
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,6 +31,7 @@ class ContactsFragment : Fragment() {
     private lateinit var adapter: ContactsAdapter
     private var selectedImageUri: Uri? = null
     private var btnSelectImageDialog: ImageButton? = null
+    private val categoryOrder = listOf("보험사", "도로 관리", "견인 업체", "정비소")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,13 +43,51 @@ class ContactsFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         contactList.addAll(loadContactsFromJson())
-        adapter = ContactsAdapter(contactList)
+        contactList.sortWith(compareBy { categoryOrder.indexOf(it.category) })
+        adapter = ContactsAdapter(contactList) { contact ->
+            showCallDialog(contact)
+        }
         recyclerView.adapter = adapter
 
         val imgBtnPlus = view.findViewById<ImageButton>(R.id.imgBtnPlus)
         imgBtnPlus.setOnClickListener { showAddContactDialog() }
 
         return view
+    }
+
+    private fun showCallDialog(contact: Contact) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("전화를 거시겠습니까?")
+            .setMessage("${contact.name}에게 전화를 거시겠습니까?")
+            .setPositiveButton("확인") { _, _ ->
+                makePhoneCall(contact.phoneNumber)
+            }
+            .setNegativeButton("취소") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+
+    private fun makePhoneCall(phoneNumber: String) {
+        val intent = Intent(Intent.ACTION_DIAL).apply {
+            data = Uri.parse("tel:$phoneNumber")
+        }
+        startActivity(intent)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CALL_PERMISSION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(context, "전화 권한이 승인되었습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "전화 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun showAddContactDialog() {
@@ -109,6 +149,7 @@ class ContactsFragment : Fragment() {
 
     private fun addContactToRecyclerView(contact: Contact) {
         contactList.add(contact)
+        contactList.sortWith(compareBy { categoryOrder.indexOf(it.category) })
         adapter.notifyItemInserted(contactList.size - 1)
     }
 
@@ -128,6 +169,7 @@ class ContactsFragment : Fragment() {
 
     companion object {
         private const val REQUEST_IMAGE_PICK = 1001
+        private const val REQUEST_CALL_PERMISSION = 200
     }
 
     private fun loadContactsFromJson(): List<Contact> {

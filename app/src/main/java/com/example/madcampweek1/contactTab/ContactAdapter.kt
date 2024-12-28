@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.madcampweek1.R
 
-class ContactsAdapter(private val contactList: List<Contact>) :
-    RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
+class ContactsAdapter(
+    private val contactList: List<Contact>,
+    private val onItemClick: (Contact) -> Unit
+) : RecyclerView.Adapter<ContactsAdapter.ContactViewHolder>() {
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivContact: ImageView = itemView.findViewById(R.id.ivContacts)
@@ -40,6 +42,10 @@ class ContactsAdapter(private val contactList: List<Contact>) :
             //.error(R.drawable.error_image) // 에러 시 표시할 이미지
             .circleCrop()
             .into(holder.ivContact)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(contact)
+        }
     }
 
     override fun getItemCount(): Int {
