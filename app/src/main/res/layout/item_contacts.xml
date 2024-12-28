@@ -23,7 +23,7 @@
         android:id="@+id/ivContacts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/sample_contacts"
+        android:src="@drawable/ic_add_photo"
         android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
@@ -41,7 +41,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="메리츠화재"
+            android:hint="이름"
             android:textStyle="bold"
             android:text=""
             android:textColor="@color/black"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="051-123-4567"
+            android:hint="전화번호"
             android:text=""
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -63,7 +63,7 @@
         android:id="@+id/tvCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="보험사"
+        android:hint="종류"
         android:textSize="14sp"
         android:textColor="@color/black"
         android:text=""
