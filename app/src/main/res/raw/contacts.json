@@ -1,21 +1,51 @@
 [
   {
     "name": "메리츠화재",
-    "phoneNumber": "051-123-4567",
+    "phoneNumber": "1566-7711",
     "category": "보험사",
     "imageUrl": "https://play-lh.googleusercontent.com/aIuW8DpY71bW9grBX3xh9EkQ-yYifV6YVSemVGdDucEEwP_d5Gb5QYnNuTZhEt_WMw"
   },
   {
-    "name": "AXA 손해보험",
-    "phoneNumber": "051-987-6543",
+    "name": "DB손해보험",
+    "phoneNumber": "1588-0100",
     "category": "보험사",
-    "imageUrl": "https://img.shoppingntmall.com/goods/674/12377674_h.jpg"
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDExMDZfMjM2%2FMDAxNjA0NjI3ODA0ODQ3.gO6gtodxvWLqfB7Jkq01rqPPQ0mNCOSrSBRFs05Z8kkg.sH_OvE8GAPj2j0umXiBZ0yQBWYM_yef6CpExJLJsHA8g.JPEG.sonbaboy%2F%25B7%25CE%25B0%25ED.jpg&type=sc960_832"
+  },
+  {
+    "name": "교보생명",
+    "phoneNumber": "1588-1001",
+    "category": "보험사",
+    "imageUrl": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fkmug.co.kr%2Fdata%2Ffile%2Fdesign%2Fthumb-data_logo_1179297167_%25EA%25B7%25B8%25EB%25A6%25BC_1_600x0.jpg&type=sc960_832"
+  },
+  {
+    "name": "NH손해보험",
+    "phoneNumber": "1644-9000",
+    "category": "보험사",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5667%2F2020%2F07%2F06%2F0000012758_001_20200706105436098.jpg&type=a340"
   },
   {
     "name": "KB 손해보험",
-    "phoneNumber": "051-654-3210",
+    "phoneNumber": "1544-0114",
     "category": "보험사",
     "imageUrl": "https://img.seoul.co.kr/img/upload/2023/06/12/SSC_20230612065910.jpg"
+  },
+  {
+    "name": "흥국화재",
+    "phoneNumber": "1688-1688",
+    "category": "보험사",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MDdfMTAz%2FMDAxNjg4Njc5ODczMjI3.n_OZb7xu7ewMfY2nYsVYbCvFddQ5hTRwbxKqx0GAKrIg.rzN7aqTiqvGJCbCqggCeDHS36fAZn8mKF4MbC7JNkbwg.JPEG.j4274247%2FScreenshot%25A3%25DF20230707%25A3%25DF064218%25A3%25DFNAVER.jpg&type=sc960_832"
+  },
+  {
+    "name": "삼성화재",
+    "phoneNumber": "1588-5114",
+    "category": "보험사",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDExMTRfMTc2%2FMDAxNzMxNTMyNzc0NTM4.Dx_Bq_SuPqnZBbOeonafs6mj8EaVu7c_BsMBbNgJxjUg.l8_JqXHtIZ0wRWhulkMjOqtBjnxaqXqVbSZCMqSGwPMg.JPEG%2F11.jpg&type=a340"
+  },
+  {
+    "name": "현대해상",
+    "phoneNumber": "1588-5656",
+    "category": "보험사",
+    "imageUrl": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2Fcf%2F3a%2Fcf%2Fcf3acf7d100cad60b942526c44ac8e9b.jpg&type=a340"
   },
   {
     "name": "한국도로공사",
@@ -24,15 +54,159 @@
     "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MjdfMTY2%2FMDAxNjE5NTE3NDg3ODU2.lNiSWdo1PTvIxUXfJ5LLRNYVbe_SiMjg2Tms1gA4QM4g.DGTCt4Tcf2jjY5XV0MUJ3P15R2-mKuaQHye5yaFRpmQg.PNG.5710132%2FK-1949.png&type=a340"
   },
   {
-    "name": "퍼스트대형렉카",
-    "phoneNumber": "051-392-4928",
-    "category": "견인 업체",
-    "imageUrl": "https://postfiles.pstatic.net/MjAyNDAxMDZfMTM4/MDAxNzA0NTA1NTIxNzA0.X6SqLEN-qxe6CO2-1bcd-cb5kNw94bpP21wJxt0faFYg.25j3eQ85MV3hL5jj0pskAskay0dCkJcTqxHzmsSb2Pwg.JPEG.inbyungnam1/KakaoTalk_Photo_2024-01-06-10-17-01_002.jpeg?type=w466"
+    "name": "국토교통부",
+    "phoneNumber": "1599-0001",
+    "category": "도로 관리",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNjEyMTFfNTYg%2FMDAxNDgxNDQyOTc2NTk1.RD_aO3zZzKYYmnaAR3b3eA0GIXlpHY2eeoJqdI-XXbsg.Q65K3RUMjLqEsl4ztFZDwxZNDdzhCSl20Q3jJgvrDbog.JPEG.mltmkr%2F%25C0%25B1%25C7%25D0%25BF%25AD-02.jpg&type=a340"
   },
   {
-    "name": "현대서비스 ",
-    "phoneNumber": "051-472-4928",
-    "category": "정비소",
+    "name": "도로교통공단",
+    "phoneNumber": "1577-1120",
+    "category": "도로 관리",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMjlfMjA0%2FMDAxNjcyMjUwODA0MDQx.cRy0rbB4feSsU3QdXfs9epRE5hZ9WMg4LoGVWQEubL4g.PMCk7hh3wta2diiHEzDssMGMksjwtCOrcbKsbuZgl_og.JPEG.dbsgml1170%2Foutput_2136628918.jpg&type=sc960_832"
+  },
+  {
+    "name": "서울특별시",
+    "phoneNumber": "02-120",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODAxMTlfNDUg%2FMDAxNTE2MzM4ODQxMjU1.oZS0PbRWvXmpm3HbPEzbxEsJ8dwRtNvUyzKjsYK3PYcg.EtmRWPs1wYLKCHfyvfgCNWCWaPElYZ8ERg4pV4YjNTcg.PNG.pinkdage%2F2018%25B3%25E2%25B5%25B5_%25BC%25AD%25BF%25EF%25C6%25AF%25BA%25B0%25BD%25C3_%25C1%25A61%25C8%25B8_%25B0%25F8%25B0%25B3%25B0%25E6%25C0%25EF%25BD%25C3%25C7%25E8_%25BF%25F8%25BC%25AD%25C1%25A2%25BC%25F6.png&type=sc960_832"
+  },
+  {
+    "name": "부산광역시",
+    "phoneNumber": "051-888-3000",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MjRfMjE0%2FMDAxNjkwMjAwMjE3NjIz.19hrKkVoojJJ7hvKQPcpu2cxad9XU8VhboVmZ-0bK3wg.wSmR84N8apq_7-q-pRJTBnGtu6AOgcAfT67AJdkf8QQg.PNG.mshbus%2F2023_busan_metropolitan_city_loko_%25283%2529.PNG&type=sc960_832"
+  },
+  {
+    "name": "대구광역시",
+    "phoneNumber": "053-803-4751",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAyMjdfMTI3%2FMDAxNzA5MDAwODY5MTA3.HJvukFCktZJtL25EctYwhXWyZnrMNR5Cvx8PFZJnBcwg.oKBTW4ft_DZaNxz-PgjoLZAyrGWp6bCslhT1TsHRNx0g.JPEG%2F%25B4%25EB%25B1%25B8%25B1%25A4%25BF%25AA%25BD%25C3_%25BD%25C9%25B9%25FA_m-01.jpg&type=a340"
+  },
+  {
+    "name": "인천광역시",
+    "phoneNumber": "032-440-3393",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MTBfMjQw%2FMDAxNjgxMTM3MDQ3MzI1.Ou5mpMB8In9CzQ47ytu2wojNTc6zM7j5jBhmvkNtjHkg.BrGs47wX9Ash2wznvzXAqwY8iiPdLgo21ZkdAXS2V40g.JPEG.bdmanager24%2F%25BD%25C3%25B1%25D7%25B4%25CF%25C3%25E7%25B1%25B9%25B9%25AE.jpg&type=a340"
+  },
+  {
+    "name": "대전광역시",
+    "phoneNumber": "042-270-5701",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2FMjAxOTAxMTlfMTQy%2FMDAxNTQ3ODk3MTkzNjM0.rgWEAsw1Uwm0bYtYPeMiDookNECrZAIx-aiRR-gs24Eg.V_UELKTLgYzz--VZDWfRgQE8hNdzG6wI3iYYAPELA-cg.PNG.rancer0405%2F%25B4%25EB%25C1%25F6_1.png&type=a340"
+  },
+  {
+    "name": "광주광역시",
+    "phoneNumber": "062-613-4571",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA2MDRfMzAg%2FMDAxNzE3NDc0MjYzNjk4.TpuBaizaxMKB1JoAD3cUG-LXKERQQI4937EsRthsOBUg.2zrOy_u0SQMG1ARRj6gdWZCNaHvnW7SgL3PYPWd7_AUg.JPEG%2F%25B1%25A4%25C1%25D6%25B1%25A4%25BF%25AA%25BD%25C3_%25B7%25CE%25B0%25ED_m-03.jpg&type=a340"
+  },
+  {
+    "name": "울산광역시",
+    "phoneNumber": "052-229-3531",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20160821_18%2Fpasstheway_1471742920506ox6w9_JPEG%2Flogo03.jpg&type=a340"
+  },
+  {
+    "name": "경기도",
+    "phoneNumber": "031-120",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMTFfMjY0%2FMDAxNjY1NDY2NTE2NDAx.1IawlklMpZYjk-DEeBQEeJ8X8vEJ5sIi2X4I7Q5xjZog.NEJnEDu375_GoOELmZ47-NW-cbBGgBraknN7ofG0M6Qg.PNG.gf8200723%2Fgyeonggi_logo.png&type=a340"
+  },
+  {
+    "name": "강원도",
+    "phoneNumber": "033-249-3483",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA0MTNfMTQw%2FMDAxNjE4MjgzMTUzMDIy.cjSWZxl3OZxyC19kE7zfYe2025DhXf6mVFCo_LGk_hog.8Ij-91QgseUfa9O52V_Tm7mrFT-Mrv-TKIjHtrZRlDIg.JPEG.jjuya2077%2F%25C0%25CE%25C1%25F5%25B8%25B6%25C5%25A9.jpg&type=a340"
+  },
+  {
+    "name": "충청북도",
+    "phoneNumber": "043-220-3581",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fwww.dogdrip.net%2Fdvs%2Fd%2F24%2F04%2F05%2Fe75ed5815b3d18447430d1af1f5fa3ff.png&type=a340"
+  },
+  {
+    "name": "충청남도",
+    "phoneNumber": "041-635-3811",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20151204_163%2Fpasstheway_1449237549975s7bSQ_JPEG%2FBS2_01_%25B1%25B9%25BF%25B5%25B9%25AE_%25B7%25CE%25B0%25ED%25C5%25B8%25C0%25D4_%25B0%25AD%25C1%25B6%25C7%25FC.jpg&type=a340"
+  },
+  {
+    "name": "전라북도",
+    "phoneNumber": "063-280-3511",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAxMDJfMTIz%2FMDAxNzA0MTI0NDA4MDY1.mxYsFcrUMTrJgsCSQlaXA2rvq6uiCGkfBC0hUpR4T7Mg.iVCUW3bbQaqvSeGoTNO-5RcESPPBfYatrLw2PcSLaRMg.PNG.ehgns6807%2F20240102_000238.png&type=a340"
+  },
+  {
+    "name": "전라남도",
+    "phoneNumber": "061-286-3511",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAyMjlfNTIg%2FMDAxNzA5MTk2MDM1NDAz.4l-Wl4ASw9jQD16uGSfJfkPdR6PZi9n9ZF0Jy6Z6qi8g.3xQv_AlH8hz2AqK4Z81-49CQl8qrN-9nOwsgzRxIwRkg.JPEG%2F%25C0%25FC%25B6%25F3%25B3%25B2%25B5%25B5_%25B7%25CE%25B0%25ED_m-03.jpg&type=a340"
+  },
+  {
+    "name": "경상북도",
+    "phoneNumber": "054-880-3581",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2FMjAyMDA5MTFfNDkg%2FMDAxNTk5Nzk2NzUyMjc0.wcs4YUlZFGZvIxpXP3Vw2AJf71WoP4lHtnIpp13Y3Wkg.LZlwcwAj0KbbVrkkpHYu8ijgzCgicL3T-MI9WvpEos0g.PNG%2FIA7d_dcmY32068QdjyTfjUIsChXI.jpg&type=a340"
+  },
+  {
+    "name": "경상남도",
+    "phoneNumber": "055-211-3581",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fkmug.co.kr%2Fboard%2Fdata%2Flogo%2F1119370661%2Fwindflower.jpg&type=a340"
+  },
+  {
+    "name": "제주도",
+    "phoneNumber": "064-710-3571",
+    "category": "견인 서비스",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxODA5MTFfMjc4%2FMDAxNTM2NjM1MzcwOTUx.6xYY5IwmqSq_VmyEVBLfiyYiQaDDyD21lWlMNJSqZ4Eg.LUEi6CHdySnCWvPE8aVH_vWKabRX7rblhxWFcxgy8v4g.PNG.zandie_a%2F1024px-Seal_of_Jeju.svg.png&type=a340"
+  },
+  {
+    "name": "현대자동차",
+    "phoneNumber": "080-600-6000",
+    "category": "긴급 출동",
     "imageUrl": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20150831_84%2F1441030037196LcC0P_JPEG%2F116463555736769_0.jpg"
+  },
+  {
+    "name": "기아자동차",
+    "phoneNumber": "080-200-2000",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDEyMDRfMTAw%2FMDAxNzMzMzEyMDEyMDc1.JHDIwAOyjZsqP2VMA551pngZ0UJWthf33vLm0BHlHXcg.3KPYBCbh9RvM5fRP4PWZ1nvXDboRMVOGKz2BGmSWnAAg.PNG%2Fimage.png&type=a340"
+  },
+  {
+    "name": "르노삼성",
+    "phoneNumber": "080-300-3000",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEwMDVfMTk1%2FMDAxNjMzMzkxMzk2MTc0.b7H4v0KbyceXrDvdDz-bbZhNAEbX-Djc4g2b5J9Vjn4g.ZbrraRVB_TwIfwXtCcu1gIZBwTK6DwHQgWDVAuRUxm0g.JPEG.brandmader%2F2021-New-Logo-Renault.jpg&type=a340"
+  },
+  {
+    "name": "쉐보레",
+    "phoneNumber": "080-300-5000",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20130820_190%2Fjsiohj_1376984115794I1hKt_JPEG%2FLogo_Chevrolet.JPG&type=a340"
+  },
+  {
+    "name": "벤츠",
+    "phoneNumber": "080-001-1886",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MTRfNzEg%2FMDAxNjk0NjY5NjQ2ODE4.xk35-QSliMDJraIlddBriHv1T__CBCT57ymrUTmBK2kg.O-xQhRDXAkgiJyae8ZffSurTTEInOf7KPjWOoAAzuzsg.PNG.ysabin%2F0003974989_002_20211019223908123.png&type=a340"
+  },
+  {
+    "name": "BMW",
+    "phoneNumber": "080-269-0001",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMDAzMTdfMjUx%2FMDAxNTg0NDE4NzIwMzU5.ltQjYJx3aouPJ71dO6f-ccOKD2eMx2FAk6sYz8YJvVIg.S19GiF3zX9tmgkqCz4D-GDPKVOFZ_Va-g7FtgK5auJog.PNG.sportsbaek%2Fbmw_2020_logo_black.png&type=a340"
+  },
+  {
+    "name": "아우디",
+    "phoneNumber": "080-767-2834",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjExMzBfMjM5%2FMDAxNjY5ODE3NzYwNDEx.jPbRLEb3KrN8rGrVpfwXOIJO8lTCerH-5xNpR4foYXcg.K4rUU0yqYQJHDvHcSWJAA9iBtbfgZqrQalefBIrMtUkg.JPEG.dongwha2022%2FAL090142_full.jpg&type=a340"
+  },
+  {
+    "name": "렉서스",
+    "phoneNumber": "080-4300-4300",
+    "category": "긴급 출동",
+    "imageUrl": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F90%2Fc6%2F2a%2F90c62a04093a897e0cdc5ac249e4334f.jpg&type=a340"
   }
 ]

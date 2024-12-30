@@ -31,7 +31,7 @@ class ContactsFragment : Fragment() {
     private lateinit var adapter: ContactsAdapter
     private var selectedImageUri: Uri? = null
     private var btnSelectImageDialog: ImageButton? = null
-    private val categoryOrder = listOf("보험사", "도로 관리", "견인 업체", "정비소")
+    private val categoryOrder = listOf("보험사", "도로 관리", "견인 서비스", "긴급 출동")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -121,8 +121,8 @@ class ContactsFragment : Fragment() {
             val category = when (selectedRadioId) {
                 R.id.radioInsurance -> "보험사"
                 R.id.radioRoadManagement -> "도로 관리"
-                R.id.radioTowing -> "견인 업체"
-                R.id.radioRepair -> "정비소"
+                R.id.radioTowing -> "견인 서비스"
+                R.id.radioRepair -> "긴급 출동"
                 else -> ""
             }
 

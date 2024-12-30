@@ -209,7 +209,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="2dp"
                         android:textAlignment="center"
-                        android:text=" 제네시스 " />
+                        android:text="쉐보레" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipOption4"
@@ -239,7 +239,7 @@
                         android:layout_margin="2dp"
                         android:textAlignment="center"
                         android:layout_height="wrap_content"
-                        android:text="볼보" />
+                        android:text="BMW" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipOption7"
@@ -249,7 +249,7 @@
                         android:textAlignment="center"
                         android:layout_columnWeight="1"
                         android:layout_height="wrap_content"
-                        android:text="폭스바겐" />
+                        android:text="아우디" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipOption8"
@@ -259,7 +259,7 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_height="wrap_content"
-                        android:text="포드" />
+                        android:text="렉서스" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipOption9"
