@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageButton
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnSelectImage"
+        android:layout_width="110dp"
+        android:src="@drawable/ic_add_photo"
+        android:layout_height="110dp"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/etName"
+        android:fontFamily="@font/title_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름" />
+
+    <EditText
+        android:layout_marginTop="20dp"
+        android:id="@+id/etPhoneNumber"
+        android:fontFamily="@font/title_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="전화번호"
+        android:inputType="phone" />
+
+    <RadioGroup
+        android:layout_marginTop="20dp"
+        android:id="@+id/radioGroupCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:layout_weight="1"
+            android:fontFamily="@font/title_light"
+            android:id="@+id/radioInsurance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보험사"
+            android:layout_marginEnd="8dp" />
+
+        <RadioButton
+            android:layout_weight="1"
+            android:fontFamily="@font/title_light"
+            android:id="@+id/radioRoadManagement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="도로 관리"
+            android:layout_marginEnd="8dp" />
+
+        <RadioButton
+            android:layout_weight="1"
+            android:fontFamily="@font/title_light"
+            android:id="@+id/radioTowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="견인 서비스"
+            android:layout_marginEnd="8dp" />
+
+        <RadioButton
+            android:layout_weight="1"
+            android:id="@+id/radioRepair"
+            android:fontFamily="@font/title_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="긴급 출동" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutButton"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="취소"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"
+            android:id="@+id/btnCancle"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="#0000FF"
+            android:background="@android:color/transparent"
+            android:text="저장"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

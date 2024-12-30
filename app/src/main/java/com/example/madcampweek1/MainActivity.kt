@@ -1,32 +1,34 @@
 package com.example.madcampweek1
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.madcampweek1.contactTab.ContactsFragment
 import com.example.madcampweek1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var selectedInsurances: ArrayList<String>? = null
+    private var selectedVehicleBrand: String? = null
+    private var emergencyContacts: ArrayList<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // View Binding 초기화
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 초기 화면 설정
-        replaceFragment(ContactsFragment())
+        selectedInsurances = intent.getStringArrayListExtra("selectedInsurances") ?: arrayListOf()
+        selectedVehicleBrand = intent.getStringExtra("selectedVehicleBrand")
+        emergencyContacts = intent.getStringArrayListExtra("emergencyContacts") ?: arrayListOf()
 
-        // 바텀 네비게이션 아이템 클릭 리스너 설정
+        replaceFragment(ContactsFragment(), createContactsBundle())
+
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_contacts -> {
-                    replaceFragment(ContactsFragment())
+                    replaceFragment(ContactsFragment(), createContactsBundle())
                     true
                 }
                 R.id.navigation_gallery -> {
@@ -41,12 +43,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 툴바 설정
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun createContactsBundle(): Bundle {
+        return Bundle().apply {
+            putStringArrayList("selectedInsurances", selectedInsurances) // 리스트 전달
+            putString("selectedVehicleBrand", selectedVehicleBrand)
+            putStringArrayList("emergencyContacts", emergencyContacts)
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment, bundle: Bundle? = null) {
+        if (bundle != null) {
+            fragment.arguments = bundle
+        }
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
