@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,37 +18,48 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.madcampweek1.RecyclerViewAdapter
-import com.example.madcampweek1.RecyclerViewItem
 import com.example.madcampweek1.databinding.FragmentGalleryBinding
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.util.*
-import androidx.activity.result.ActivityResultCallback
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import androidx.core.app.ActivityCompat
-import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.lifecycleScope
+import com.example.madcampweek1.GalleryDataBase.ImageDataBase
+import com.example.madcampweek1.GalleryDataBase.GalleryImage
+import com.example.madcampweek1.GalleryDataBase.GalleryImageDao
+import kotlinx.coroutines.launch
 
 
 class GalleryFragment : Fragment(R.layout.fragment_gallery) {
     private lateinit var binding: FragmentGalleryBinding
+
+    // 리사이클러뷰 어댑터
     private lateinit var recyclerViewAdapters: MutableList<RecyclerViewAdapter>
+
+    // 갤러리
     private lateinit var getImageLaunchers: MutableList<ActivityResultLauncher<Intent>>
+
+    // 카메라
     private lateinit var cameraLaunchers: MutableList<ActivityResultLauncher<Intent>>
-    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private var currentPhotoPath: String? = null
+
+    // DB
+    private lateinit var galleryImageDao: GalleryImageDao
+
+    // 권한
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // 프래그먼트의 레이아웃 설정
         binding = FragmentGalleryBinding.inflate(inflater, container, false)
+
+        // DB 초기화
+        val db = ImageDataBase.getDatabase(requireContext())
+        galleryImageDao = db.galleryImageDao()
 
         // 권한 요청 런처 초기화
         requestPermissionLauncher =
@@ -76,7 +86,12 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
                     val data = result.data
                     val selectedImageUri: Uri? = data?.data
                     selectedImageUri?.let {
+                        // 리사이클러뷰 어댑터에 추가
                         recyclerViewAdapters[i].addItem(RecyclerViewItem(it, currentDateTime))
+
+                        // DB에 추가
+                        val galleryImage = GalleryImage(imageUri = it.toString(), timestamp = currentDateTime, position = i)
+                        lifecycleScope.launch { galleryImageDao.insert(galleryImage) }
                     }
                 }
             }
@@ -86,7 +101,12 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
             val cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK && currentPhotoPath != null) {
                     val photoUri = Uri.fromFile(File(currentPhotoPath!!))
+                    // 리사이클러뷰 어댑터에 추가
                     recyclerViewAdapters[i].addItem(RecyclerViewItem(photoUri, currentDateTime))
+
+                    // DB에 추가
+                    val galleryImage = GalleryImage(imageUri = photoUri.toString(), timestamp = currentDateTime, position = i)
+                    lifecycleScope.launch { galleryImageDao.insert(galleryImage)}
                 }
             }
             cameraLaunchers.add(cameraLauncher)
@@ -127,6 +147,9 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
             adapter = recyclerViewAdapters[5]
         }
 
+        // DB에서 이미지 불러오기
+        loadImagesFromDatabase()
+
         // 각 이미지 버튼 클릭 이벤트 처리
         binding.imgBtnPhoto1.setOnClickListener { showOptionDialog(0) }
         binding.imgBtnPhoto2.setOnClickListener { showOptionDialog(1) }
@@ -136,6 +159,21 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
         binding.imgBtnPhoto6.setOnClickListener { showOptionDialog(5) }
 
         return binding.root
+    }
+
+    private fun loadImagesFromDatabase() {
+        lifecycleScope.launch {
+            // DB에서 모든 이미지 로드
+            val allImages = galleryImageDao.getAllImages()
+
+            // 이미지를 RecyclerView 어댑터에 추가
+            allImages.forEach(){ galleryImage ->
+                val imageUri = Uri.parse(galleryImage.imageUri)
+                val timestamp = galleryImage.timestamp
+                val position = galleryImage.position
+                recyclerViewAdapters[position].addItem(RecyclerViewItem(imageUri, timestamp))
+            }
+        }
     }
 
     private fun showOptionDialog(position: Int) {
