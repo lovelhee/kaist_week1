@@ -11,9 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -44,6 +42,7 @@ class ContactsFragment : Fragment() {
 
         val selectedInsurances = arguments?.getStringArrayList("selectedInsurances") ?: arrayListOf()
         val selectedVehicleBrand = arguments?.getString("selectedVehicleBrand") ?: ""
+        val emergencyContacts = arguments?.getStringArrayList("emergencyContacts") ?: arrayListOf()
 
         val filteredContacts = loadContactsFromJson().filter { contact ->
             when (contact.category) {
@@ -54,8 +53,17 @@ class ContactsFragment : Fragment() {
             }
         }
 
+        val emergencyContactObjects = emergencyContacts.map { phoneNumber ->
+            Contact(
+                name = "긴급 연락처",
+                phoneNumber = phoneNumber,
+                category = "긴급 연락처",
+                imageUrl = "https://i.imgur.com/2pmUJOo.png" // 긴급 연락처는 이미지 없음
+            )
+        }
+
         contactList.clear()
-        contactList.addAll(filteredContacts)
+        contactList.addAll(filteredContacts + emergencyContactObjects)
         contactList.sortWith(compareBy { categoryOrder.indexOf(it.category) })
         adapter = ContactsAdapter(contactList) { contact ->
             showCallDialog(contact)
@@ -173,7 +181,7 @@ class ContactsFragment : Fragment() {
             if (imageUri != null) {
                 selectedImageUri = imageUri
                 Glide.with(requireContext())
-                    .load(imageUri)
+                    .load(selectedImageUri ?: R.drawable.default_contact_image)
                     .circleCrop()
                     .into(btnSelectImageDialog!!)
             }

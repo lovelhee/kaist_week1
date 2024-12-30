@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var selectedInsurances: ArrayList<String>? = null
     private var selectedVehicleBrand: String? = null
+    private var emergencyContacts: ArrayList<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         selectedInsurances = intent.getStringArrayListExtra("selectedInsurances") ?: arrayListOf()
         selectedVehicleBrand = intent.getStringExtra("selectedVehicleBrand")
+        emergencyContacts = intent.getStringArrayListExtra("emergencyContacts") ?: arrayListOf()
 
         replaceFragment(ContactsFragment(), createContactsBundle())
 
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         return Bundle().apply {
             putStringArrayList("selectedInsurances", selectedInsurances) // 리스트 전달
             putString("selectedVehicleBrand", selectedVehicleBrand)
+            putStringArrayList("emergencyContacts", emergencyContacts)
         }
     }
 

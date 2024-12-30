@@ -92,11 +92,13 @@ class MemberActivity : AppCompatActivity() {
         binding.btnComplete.setOnClickListener {
             saveDataToDatabase()
             val selectedInsurances = getSelectedInsurances()
-            val selectedVehicleBrand = getSelectedChipText() // 선택된 차량 브랜드
+            val selectedVehicleBrand = getSelectedChipText()
+            val emergencyContacts = getEmergencyContacts()
 
             val intent = Intent(this, MainActivity::class.java)
             intent.putStringArrayListExtra("selectedInsurances", ArrayList(selectedInsurances))
             intent.putExtra("selectedVehicleBrand", selectedVehicleBrand)
+            intent.putStringArrayListExtra("emergencyContacts", ArrayList(emergencyContacts))
             startActivity(intent)
             finish()
         }

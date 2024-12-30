@@ -1,5 +1,7 @@
 package com.example.madcampweek1.contactTab
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +22,7 @@ class ContactsAdapter(
         val tvName: TextView = itemView.findViewById(R.id.tvName)
         val tvNumber: TextView = itemView.findViewById(R.id.tvNumber)
         val tvCategory: TextView = itemView.findViewById(R.id.tvCategory)
+        val rootLayout: View = itemView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
@@ -42,6 +45,15 @@ class ContactsAdapter(
             //.error(R.drawable.error_image) // 에러 시 표시할 이미지
             .circleCrop()
             .into(holder.ivContact)
+
+        val background = holder.rootLayout.background.mutate() // 배경을 복제하여 독립적으로 사용
+        if (contact.category == "긴급 연락처") {
+            holder.rootLayout.background = background
+            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFE1DE"))
+        } else {
+            holder.rootLayout.background = background
+            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A9BBE8")) // 기본 배경색
+        }
 
         holder.itemView.setOnClickListener {
             onItemClick(contact)
