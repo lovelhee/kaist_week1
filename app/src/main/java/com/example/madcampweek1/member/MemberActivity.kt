@@ -91,9 +91,16 @@ class MemberActivity : AppCompatActivity() {
 
         binding.btnComplete.setOnClickListener {
             saveDataToDatabase()
-            startActivity(Intent(this, MainActivity::class.java))
+            val selectedInsurances = getSelectedInsurances()
+            val selectedVehicleBrand = getSelectedChipText() // 선택된 차량 브랜드
+
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putStringArrayListExtra("selectedInsurances", ArrayList(selectedInsurances))
+            intent.putExtra("selectedVehicleBrand", selectedVehicleBrand)
+            startActivity(intent)
             finish()
         }
+
     }
 
     private fun validateInput() {

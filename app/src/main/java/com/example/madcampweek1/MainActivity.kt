@@ -9,6 +9,8 @@ import com.example.madcampweek1.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var selectedInsurances: ArrayList<String>? = null
+    private var selectedVehicleBrand: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,12 +18,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(ContactsFragment())
+        selectedInsurances = intent.getStringArrayListExtra("selectedInsurances") ?: arrayListOf()
+        selectedVehicleBrand = intent.getStringExtra("selectedVehicleBrand")
+
+        replaceFragment(ContactsFragment(), createContactsBundle())
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_contacts -> {
-                    replaceFragment(ContactsFragment())
+                    replaceFragment(ContactsFragment(), createContactsBundle())
                     true
                 }
                 R.id.navigation_gallery -> {
@@ -40,7 +45,17 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun createContactsBundle(): Bundle {
+        return Bundle().apply {
+            putStringArrayList("selectedInsurances", selectedInsurances) // 리스트 전달
+            putString("selectedVehicleBrand", selectedVehicleBrand)
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment, bundle: Bundle? = null) {
+        if (bundle != null) {
+            fragment.arguments = bundle
+        }
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()

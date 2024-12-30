@@ -42,7 +42,20 @@ class ContactsFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvContacts)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        contactList.addAll(loadContactsFromJson())
+        val selectedInsurances = arguments?.getStringArrayList("selectedInsurances") ?: arrayListOf()
+        val selectedVehicleBrand = arguments?.getString("selectedVehicleBrand") ?: ""
+
+        val filteredContacts = loadContactsFromJson().filter { contact ->
+            when (contact.category) {
+                "보험사" -> contact.name in selectedInsurances
+                "긴급 출동" -> contact.name == selectedVehicleBrand // 선택된 차량 브랜드만 표시
+                "도로 관리", "견인 서비스" -> true // 전체 표시
+                else -> false // 기타 카테고리는 제외
+            }
+        }
+
+        contactList.clear()
+        contactList.addAll(filteredContacts)
         contactList.sortWith(compareBy { categoryOrder.indexOf(it.category) })
         adapter = ContactsAdapter(contactList) { contact ->
             showCallDialog(contact)
