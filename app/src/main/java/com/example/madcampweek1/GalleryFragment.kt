@@ -27,13 +27,13 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.*
 import androidx.activity.result.ActivityResultCallback
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
-
 
 
 class GalleryFragment : Fragment(R.layout.fragment_gallery) {
@@ -66,6 +66,9 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
         getImageLaunchers = mutableListOf()
         cameraLaunchers = mutableListOf()
 
+        // 현재시간
+        val currentDateTime = SimpleDateFormat("yyyy.MM.dd\nHH:mm:ss", Locale.getDefault()).format(Date())
+
         for (i in 0 until 6) {
             // 갤러리에서 선택하기
             val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -73,7 +76,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
                     val data = result.data
                     val selectedImageUri: Uri? = data?.data
                     selectedImageUri?.let {
-                        recyclerViewAdapters[i].addItem(RecyclerViewItem(it, "갤러리 사진"))
+                        recyclerViewAdapters[i].addItem(RecyclerViewItem(it, currentDateTime))
                     }
                 }
             }
@@ -83,7 +86,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
             val cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK && currentPhotoPath != null) {
                     val photoUri = Uri.fromFile(File(currentPhotoPath!!))
-                    recyclerViewAdapters[i].addItem(RecyclerViewItem(photoUri, "카메라 사진"))
+                    recyclerViewAdapters[i].addItem(RecyclerViewItem(photoUri, currentDateTime))
                 }
             }
             cameraLaunchers.add(cameraLauncher)
