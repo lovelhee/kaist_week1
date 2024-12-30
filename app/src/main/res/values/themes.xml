@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.MadCampWeek1" parent="Base.Theme.MadCampWeek1" />
+    <style name="Theme.MadCampWeek1" parent="Base.Theme.MadCampWeek1" >
+        <item name="android:fontFamily">@font/paperlogy_4regular</item>
+    </style>
 </resources>
