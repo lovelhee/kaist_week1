@@ -7,5 +7,5 @@
     <string name="title4">4.사고 현장 주변 사진</string>
     <string name="title5">5.사고 현장 도로 사진</string>
     <string name="title6">6.블랙박스 작동 사진</string>
-    <string name="select_image">이미지 추가</string>
+    <string name="select_image">사진 추가</string>
 </resources>

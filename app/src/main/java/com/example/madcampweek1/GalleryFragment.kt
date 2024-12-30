@@ -67,7 +67,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
         cameraLaunchers = mutableListOf()
 
         // 현재시간
-        val currentDateTime = SimpleDateFormat("yyyy.MM.dd\nHH:mm:ss", Locale.getDefault()).format(Date())
+        val currentDateTime = SimpleDateFormat("yyyy.MM.dd\n  HH:mm:ss", Locale.getDefault()).format(Date())
 
         for (i in 0 until 6) {
             // 갤러리에서 선택하기
