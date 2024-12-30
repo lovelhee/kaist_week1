@@ -1,3 +1,13 @@
 <resources>
+
+    <string name="app_name">MadCampWeek1</string>
+    <string name="Images">Images</string>
+    <string name="title1">1.사고 현장 전체 사진</string>
+    <string name="title2">2.사고 부위 근접 사진</string>
+    <string name="title3">3.차량 바퀴 및 핸들 사진</string>
+    <string name="title4">4.사고 현장 주변 사진</string>
+    <string name="title5">5.사고 현장 도로 사진</string>
+    <string name="title6">6.블랙박스 작동 사진</string>
+    <string name="select_image">사진 추가</string>
     <string name="app_name">침착해</string>
 </resources>
