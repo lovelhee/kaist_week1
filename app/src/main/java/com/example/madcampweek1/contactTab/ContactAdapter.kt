@@ -41,18 +41,16 @@ class ContactsAdapter(
 
         Glide.with(holder.itemView.context)
             .load(contact.imageUrl)
-            //.placeholder(R.drawable.placeholder) // 로딩 중 표시할 이미지
-            //.error(R.drawable.error_image) // 에러 시 표시할 이미지
             .circleCrop()
             .into(holder.ivContact)
 
-        val background = holder.rootLayout.background.mutate() // 배경을 복제하여 독립적으로 사용
+        val background = holder.rootLayout.background.mutate()
         if (contact.category == "긴급 연락처") {
             holder.rootLayout.background = background
-            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F4D7FF"))
+            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFE1DE"))
         } else {
             holder.rootLayout.background = background
-            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A9BBE8")) // 기본 배경색
+            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A9BBE8"))
         }
 
         holder.itemView.setOnClickListener {
