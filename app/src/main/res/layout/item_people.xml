@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
-    app:cardElevation="5dp"
+    app:cardElevation="3dp"
     android:layout_marginTop="10dp"
     app:cardBackgroundColor="@android:color/white">
 
@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/ivPeople"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:scaleType="centerCrop"
             android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
             android:textSize="14sp"
             android:textColor="#A9BBE8"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintStart_toEndOf="@+id/tvName"
             app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
 
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:text="최근 상담"
             android:textColor="#4978F1"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/tvReplyPercent"

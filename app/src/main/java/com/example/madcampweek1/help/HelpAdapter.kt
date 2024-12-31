@@ -11,6 +11,8 @@ import com.example.madcampweek1.R
 
 class HelpAdapter(private val helpList: List<Help>) : RecyclerView.Adapter<HelpAdapter.HelpViewHolder>() {
 
+    private var filteredList: MutableList<Help> = helpList.toMutableList()
+
     class HelpViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivPeople: ImageView = itemView.findViewById(R.id.ivPeople)
         val tvCategory: TextView = itemView.findViewById(R.id.tvCategory)
@@ -26,7 +28,7 @@ class HelpAdapter(private val helpList: List<Help>) : RecyclerView.Adapter<HelpA
     }
 
     override fun onBindViewHolder(holder: HelpViewHolder, position: Int) {
-        val help = helpList[position]
+        val help = filteredList[position]
         holder.tvCategory.text = "#${help.tag}"
         holder.tvName.text = help.name
         holder.tvContent.text = help.content
@@ -40,5 +42,14 @@ class HelpAdapter(private val helpList: List<Help>) : RecyclerView.Adapter<HelpA
             .into(holder.ivPeople)
     }
 
-    override fun getItemCount(): Int = helpList.size
+    override fun getItemCount(): Int = filteredList.size
+
+    fun filter(query: String) {
+        filteredList = if (query.isEmpty()) {
+            helpList.toMutableList()
+        } else {
+            helpList.filter { it.name.contains(query, ignoreCase = true) }.toMutableList()
+        }
+        notifyDataSetChanged()
+    }
 }
