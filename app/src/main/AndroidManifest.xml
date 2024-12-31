@@ -11,23 +11,26 @@
         android:required="true" />
 
     <application
-        android:largeHeap="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_app"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_app"
         android:supportsRtl="true"
         android:theme="@style/Theme.MadCampWeek1"
         tools:targetApi="31">
+        <activity
+            android:name=".loginJh.LoginJhActivity"
+            android:exported="false" />
         <activity
             android:name=".member.MemberActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity android:name=".FullscreenImageActivity"/>
+        <activity android:name=".FullscreenImageActivity" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -47,7 +50,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
     </application>
 
 </manifest>

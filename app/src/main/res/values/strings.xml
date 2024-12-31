@@ -9,4 +9,21 @@
     <string name="title6">6.블랙박스 작동 사진</string>
     <string name="select_image">사진 추가</string>
     <string name="app_name">침착해</string>
+    <string name="user_id">아이디</string>
+    <string name="user_password">비밀번호</string>
+    <string name="login">로그인</string>
+    <string name="sign_up">회원가입</string>
+    <string name="login_withSNS">다음으로 로그인</string>
+    <string name="check_password">비밀번호 확인</string>
+    <string name="normal">일반회원</string>
+    <string name="claims_adjuster">손해사정사</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>
