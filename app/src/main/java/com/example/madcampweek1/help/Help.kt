@@ -6,6 +6,7 @@ data class Help(
     val phoneNumber: String,
     val email: String,
     val office: String,
+    val detailAddress: String,
     val address: String,
     val content: String,
     val imageUrl: String,
