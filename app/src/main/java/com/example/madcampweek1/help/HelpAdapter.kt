@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.madcampweek1.R
 
-class HelpAdapter(private val helpList: List<Help>) : RecyclerView.Adapter<HelpAdapter.HelpViewHolder>() {
+class HelpAdapter(
+    private val helpList: List<Help>,
+    private val onItemClick: (Help) -> Unit
+) : RecyclerView.Adapter<HelpAdapter.HelpViewHolder>() {
 
     private var filteredList: MutableList<Help> = helpList.toMutableList()
 
@@ -40,6 +43,10 @@ class HelpAdapter(private val helpList: List<Help>) : RecyclerView.Adapter<HelpA
             .placeholder(R.drawable.default_contact_image)
             .centerCrop()
             .into(holder.ivPeople)
+
+        holder.itemView.setOnClickListener {
+            onItemClick(help)
+        }
     }
 
     override fun getItemCount(): Int = filteredList.size

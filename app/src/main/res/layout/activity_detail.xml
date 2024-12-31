@@ -19,6 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageButton
+            android:id="@+id/imgBtnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back"
@@ -37,8 +38,8 @@
         android:id="@+id/cardViewPeople"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        app:cardCornerRadius="200dp"
-        android:layout_marginTop="20dp"
+        app:cardCornerRadius="65dp"
+        android:layout_marginTop="10dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +136,7 @@
                 android:src="@drawable/ic_distance"/>
 
             <TextView
+                android:id="@+id/tvAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="부산 해운대구"
@@ -218,6 +220,7 @@
         android:id="@+id/layoutBtn">
 
         <Button
+            android:id="@+id/btnEmail"
             android:layout_weight="1"
             android:layout_margin="5dp"
             android:padding="10dp"
@@ -227,6 +230,7 @@
             android:text="이메일 상담"/>
 
         <Button
+            android:id="@+id/btnCall"
             android:layout_weight="1"
             android:padding="10dp"
             android:layout_margin="5dp"

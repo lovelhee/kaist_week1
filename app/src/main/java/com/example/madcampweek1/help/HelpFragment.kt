@@ -1,5 +1,6 @@
 package com.example.madcampweek1.help
 
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
@@ -41,7 +42,12 @@ class HelpFragment : Fragment() {
         val type = object : TypeToken<List<Help>>() {}.type
         helpList = Gson().fromJson(json, type)
 
-        helpAdapter = HelpAdapter(helpList)
+        helpAdapter = HelpAdapter(helpList) { help ->
+            val intent = Intent(context, DetailActivity::class.java).apply {
+                putExtra("help", help)
+            }
+            startActivity(intent)
+        }
         rvPeople.adapter = helpAdapter
 
         tabLayout.addTab(tabLayout.newTab().setText("전체"))

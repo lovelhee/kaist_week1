@@ -25,7 +25,7 @@
             android:value="AIzaSyBwfBPlqDf4wcvyrRGalOMGsixWvzZf-No"/>
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".help.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".member.MemberActivity"
@@ -34,7 +34,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".help.DetailActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
