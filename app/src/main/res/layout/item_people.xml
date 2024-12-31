@@ -1,0 +1,131 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="25dp"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_people_background">
+
+        <ImageView
+            android:id="@+id/ivPeople"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/default_contact_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#교통사고"
+            android:padding="2dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/paperlogy_5medium"
+            android:textColor="#A9BBE8"
+            android:background="@drawable/rounded_category"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/ivPeople"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="침착맨"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/ivPeople"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="손해사정사"
+            android:textSize="14sp"
+            android:textColor="#A9BBE8"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="항상 최선을 다하겠습니다."
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#797979"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/ivPeople"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvReply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="응답률"
+            android:textColor="#4978F1"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ivPeople"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+        <TextView
+            android:id="@+id/tvReplyPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="95%"
+            android:textColor="#1D3574"
+            android:textStyle="bold"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="9dp"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@+id/tvReply"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+        <TextView
+            android:id="@+id/tvTalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최근 상담"
+            android:textColor="#4978F1"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tvReplyPercent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+        <TextView
+            android:id="@+id/tvTalkPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="9dp"
+            android:text="350회"
+            android:textColor="#1D3574"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvTalk"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
