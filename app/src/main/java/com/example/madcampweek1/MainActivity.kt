@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.madcampweek1.contactTab.ContactsFragment
 import com.example.madcampweek1.databinding.ActivityMainBinding
+import com.example.madcampweek1.help.HelpFragment
 
 class MainActivity : AppCompatActivity() {
 

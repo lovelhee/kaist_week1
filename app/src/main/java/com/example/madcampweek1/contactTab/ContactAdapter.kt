@@ -49,7 +49,7 @@ class ContactsAdapter(
         val background = holder.rootLayout.background.mutate() // 배경을 복제하여 독립적으로 사용
         if (contact.category == "긴급 연락처") {
             holder.rootLayout.background = background
-            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFE1DE"))
+            holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F4D7FF"))
         } else {
             holder.rootLayout.background = background
             holder.rootLayout.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#A9BBE8")) // 기본 배경색
