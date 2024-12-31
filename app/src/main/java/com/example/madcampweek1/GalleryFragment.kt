@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.madcampweek1.databinding.FragmentGalleryBinding
 import java.io.File
@@ -91,7 +92,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
                         // DB에 추가
                         val galleryImage = GalleryImage(imageUri = it.toString(), timestamp = currentDateTime, position = i)
-                        lifecycleScope.launch { galleryImageDao.insert(galleryImage) }
+                        viewLifecycleOwner.lifecycleScope.launch { galleryImageDao.insert(galleryImage) }
                     }
                 }
             }
@@ -106,7 +107,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
                     // DB에 추가
                     val galleryImage = GalleryImage(imageUri = photoUri.toString(), timestamp = currentDateTime, position = i)
-                    lifecycleScope.launch { galleryImageDao.insert(galleryImage)}
+                    viewLifecycleOwner.lifecycleScope.launch { galleryImageDao.insert(galleryImage)}
                 }
             }
             cameraLaunchers.add(cameraLauncher)
@@ -114,7 +115,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
 
         // 리사이클러뷰 초기화
-        recyclerViewAdapters = MutableList(6) { RecyclerViewAdapter(mutableListOf()) }
+        recyclerViewAdapters = MutableList(6) { _ -> RecyclerViewAdapter(mutableListOf(), galleryImageDao, viewLifecycleOwner.lifecycleScope) }
 
         binding.recyclerView1.apply {
             layoutManager =
@@ -162,7 +163,7 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
     }
 
     private fun loadImagesFromDatabase() {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             // DB에서 모든 이미지 로드
             val allImages = galleryImageDao.getAllImages()
 

@@ -38,6 +38,13 @@ android {
     viewBinding {
         enable = true
     }
+
+    dataBinding{
+        enable = true
+    }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -46,6 +53,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation ("com.google.android.material:material:1.9.0")
     implementation("androidx.room:room-runtime:2.5.2")
+    implementation(libs.androidx.annotation)
     kapt("androidx.room:room-compiler:2.5.2")
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("com.github.bumptech.glide:glide:4.15.1")
@@ -66,4 +74,15 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
+
+    // 삭제 기능
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
+    // 로그인 관리
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.0")
+    implementation("androidx.activity:activity-ktx:1.7.0")
+    implementation("androidx.databinding:databinding-runtime:7.3.1")
 }
