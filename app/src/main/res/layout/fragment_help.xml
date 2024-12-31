@@ -15,7 +15,7 @@
         <LinearLayout
             android:id="@+id/layoutBanner"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="180dp"
             android:background="@drawable/img_description"
             app:layout_constraintTop_toTopOf="parent"
             android:orientation="horizontal" />
@@ -63,6 +63,7 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
+            android:backgroundTint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
