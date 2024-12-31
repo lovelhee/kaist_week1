@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madcampweek1.R
+import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
@@ -21,6 +22,7 @@ import java.io.InputStreamReader
 class HelpFragment : Fragment() {
 
     private lateinit var helpAdapter: HelpAdapter
+    private lateinit var helpList: List<Help>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +35,29 @@ class HelpFragment : Fragment() {
 
         val editText: EditText = view.findViewById(R.id.etSearch)
         val bottomNavigationView: View? = activity?.findViewById(R.id.bottomNavigationView)
+        val tabLayout: TabLayout = view.findViewById(R.id.tabLayout)
 
         val json = loadJSONFromRaw(R.raw.help)
         val type = object : TypeToken<List<Help>>() {}.type
-        val helpList: List<Help> = Gson().fromJson(json, type)
+        helpList = Gson().fromJson(json, type)
 
         helpAdapter = HelpAdapter(helpList)
         rvPeople.adapter = helpAdapter
+
+        tabLayout.addTab(tabLayout.newTab().setText("전체"))
+        tabLayout.addTab(tabLayout.newTab().setText("교통사고"))
+        tabLayout.addTab(tabLayout.newTab().setText("일상사고"))
+        tabLayout.addTab(tabLayout.newTab().setText("질병진단"))
+
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                val query = tab?.text.toString()
+                helpAdapter.filterByTag(if (query == "전체") "" else query)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
 
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

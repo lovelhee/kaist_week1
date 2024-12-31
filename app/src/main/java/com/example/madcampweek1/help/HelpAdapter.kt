@@ -52,4 +52,14 @@ class HelpAdapter(private val helpList: List<Help>) : RecyclerView.Adapter<HelpA
         }
         notifyDataSetChanged()
     }
+
+    fun filterByTag(tag: String) {
+        filteredList = if (tag.isEmpty()) {
+            helpList.toMutableList()
+        } else {
+            helpList.filter { it.tag.contains(tag, ignoreCase = true) }.toMutableList()
+        }
+        notifyDataSetChanged()
+    }
+
 }
