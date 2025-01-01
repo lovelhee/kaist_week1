@@ -1,6 +1,7 @@
 package com.example.madcampweek1.contactTab
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -64,6 +65,7 @@ class ContactsFragment : Fragment() {
 
         contactList.clear()
         contactList.addAll(filteredContacts + emergencyContactObjects)
+        contactList.addAll(loadAddedContacts())
         contactList.sortWith(compareBy { categoryOrder.indexOf(it.category) })
         adapter = ContactsAdapter(contactList) { contact ->
             showCallDialog(contact)
@@ -159,6 +161,7 @@ class ContactsFragment : Fragment() {
                 imageUrl = selectedImageUri.toString()
             )
             addContactToRecyclerView(contact)
+            saveAddedContact(contact)
             dialog.dismiss()
 
 
@@ -186,6 +189,22 @@ class ContactsFragment : Fragment() {
                     .into(btnSelectImageDialog!!)
             }
         }
+    }
+
+    private fun saveAddedContact(contact: Contact) {
+        val sharedPreferences = requireContext().getSharedPreferences("contacts_pref", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val addedContacts = loadAddedContacts().toMutableList()
+        addedContacts.add(contact)
+        editor.putString("added_contacts", Gson().toJson(addedContacts))
+        editor.apply()
+    }
+
+    private fun loadAddedContacts(): List<Contact> {
+        val sharedPreferences = requireContext().getSharedPreferences("contacts_pref", Context.MODE_PRIVATE)
+        val json = sharedPreferences.getString("added_contacts", "[]")
+        val type = object : TypeToken<List<Contact>>() {}.type
+        return Gson().fromJson(json, type)
     }
 
     companion object {

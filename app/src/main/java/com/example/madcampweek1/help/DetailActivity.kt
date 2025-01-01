@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.madcampweek1.R
@@ -42,17 +43,24 @@ class DetailActivity : AppCompatActivity(), OnMapReadyCallback {
             finish()
         }
 
+        // 이메일 버튼 클릭 리스너
         findViewById<Button>(R.id.btnEmail).setOnClickListener {
-            val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-                data = Uri.parse("mailto:") // 이메일 전용 필터
+            val emailIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "message/rfc822" // 이메일 MIME 타입
                 putExtra(Intent.EXTRA_EMAIL, arrayOf(help.email)) // 수신자 이메일
                 putExtra(Intent.EXTRA_SUBJECT, "상담 요청") // 제목
                 putExtra(Intent.EXTRA_TEXT, "안녕하세요, 상담을 요청드립니다.") // 내용
             }
+
+            // 이메일 앱이 없는 경우 예외 처리
             if (emailIntent.resolveActivity(packageManager) != null) {
-                startActivity(emailIntent)
+                startActivity(Intent.createChooser(emailIntent, "이메일 앱 선택"))
+            } else {
+                // 이메일 앱이 없을 경우 사용자에게 알림
+                Toast.makeText(this, "이메일 앱이 설치되어 있지 않습니다.", Toast.LENGTH_SHORT).show()
             }
         }
+
 
         findViewById<Button>(R.id.btnCall).setOnClickListener {
             val callIntent = Intent(Intent.ACTION_DIAL).apply {

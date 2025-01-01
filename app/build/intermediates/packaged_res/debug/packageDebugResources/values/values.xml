@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="button_active">#1D3574</color>
+    <color name="button_inactive">#A5A5A5</color>
+    <color name="chip_checked_color">#A9BBE8</color>
+    <color name="chip_unchecked_color">#FFFFFF</color>
+    <color name="custom_status_bar_color">#1D3574</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <string name="Images">Images</string>
-    <string name="app_name">MadCampWeek1</string>
-    <string name="select_image">이미지 추가</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="app_name">침착해</string>
+    <string name="check_password">비밀번호 확인</string>
+    <string name="claims_adjuster">손해사정사</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="login">로그인</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="login_withSNS">다음으로 로그인</string>
+    <string name="normal">일반회원</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="select_image">사진 추가</string>
+    <string name="sign_up">회원가입</string>
     <string name="title1">1.사고 현장 전체 사진</string>
     <string name="title2">2.사고 부위 근접 사진</string>
     <string name="title3">3.차량 바퀴 및 핸들 사진</string>
-    <string name="title4">4.사고 현장 주변 사진 사진</string>
+    <string name="title4">4.사고 현장 주변 사진</string>
     <string name="title5">5.사고 현장 도로 사진</string>
     <string name="title6">6.블랙박스 작동 사진</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="user_id">아이디</string>
+    <string name="user_password">비밀번호</string>
+    <string name="welcome">"Welcome !"</string>
     <style name="Base.Theme.MadCampWeek1" parent="Theme.Material3.DayNight.NoActionBar">
         
         
+        <item name="android:statusBarColor">@color/custom_status_bar_color</item>
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
-    <style name="Theme.MadCampWeek1" parent="Base.Theme.MadCampWeek1"/>
+    <style name="Theme.MadCampWeek1" parent="Base.Theme.MadCampWeek1">
+        <item name="android:fontFamily">@font/paperlogy_4regular</item>
+    </style>
 </resources>

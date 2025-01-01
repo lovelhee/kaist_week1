@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="25dp"
     app:cardElevation="3dp"
-    android:layout_marginTop="10dp"
+    android:layout_margin="10dp"
     app:cardBackgroundColor="@android:color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,8 +19,8 @@
             android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:scaleType="centerCrop"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:src="@drawable/default_contact_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
