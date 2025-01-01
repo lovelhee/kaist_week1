@@ -60,8 +60,13 @@ class RecyclerViewAdapter(
 
     // 아이템 추가 함수
     fun addItem(item: RecyclerViewItem) {
-        items.add(item)
-        notifyItemInserted(items.size - 1)
+        try {
+            items.add(item)
+            notifyItemInserted(items.size - 1)
+            Log.d("RecyclerViewAdapter", "Item added: $item")
+        } catch (e: Exception) {
+            Log.e("RecyclerViewAdapter", "Error adding item to RecyclerView", e)
+        }
     }
 
     // 다이얼로그

@@ -2,11 +2,13 @@ package com.example.madcampweek1
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,9 +28,13 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import androidx.lifecycle.lifecycleScope
-import com.example.madcampweek1.GalleryDataBase.ImageDataBase
 import com.example.madcampweek1.GalleryDataBase.GalleryImage
 import com.example.madcampweek1.GalleryDataBase.GalleryImageDao
+import com.example.madcampweek1.generalAppDatabase.GeneralAppDatabase
+import com.example.madcampweek1.member.User
+import com.example.madcampweek1.userInfoDatabase.UserInfo
+import com.example.madcampweek1.userInfoDatabase.UserInfoDao
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -47,9 +53,13 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
     // DB
     private lateinit var galleryImageDao: GalleryImageDao
+    private lateinit var userInfoDao: UserInfoDao
 
     // 권한
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
+
+    // userCode
+    private var userCode: Int = -1
 
 
     override fun onCreateView(
@@ -59,8 +69,13 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
         binding = FragmentGalleryBinding.inflate(inflater, container, false)
 
         // DB 초기화
-        val db = ImageDataBase.getDatabase(requireContext())
+        val db = GeneralAppDatabase.getInstance(requireContext())
         galleryImageDao = db.galleryImageDao()
+        userInfoDao = db.userInfoDao()
+
+        // UserCode
+        val application = requireActivity().application as ApplicationUserCode
+        userCode = application.userCode
 
         // 권한 요청 런처 초기화
         requestPermissionLauncher =
@@ -91,8 +106,15 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
                         recyclerViewAdapters[i].addItem(RecyclerViewItem(it, currentDateTime))
 
                         // DB에 추가
-                        val galleryImage = GalleryImage(imageUri = it.toString(), timestamp = currentDateTime, position = i)
-                        viewLifecycleOwner.lifecycleScope.launch { galleryImageDao.insert(galleryImage) }
+                        val galleryImage = GalleryImage(userCode= userCode, imageUri = it.toString(), timestamp = currentDateTime, position = i)
+                        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
+                            try {
+                                galleryImageDao.insert(galleryImage)
+                                Log.d("GalleryFragment", "Successfully added to database: $galleryImage")
+                            } catch (e: Exception) {
+                                Log.e("GalleryFragment", "Error inserting image into database", e)
+                            }
+                        }
                     }
                 }
             }
@@ -106,8 +128,10 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
                     recyclerViewAdapters[i].addItem(RecyclerViewItem(photoUri, currentDateTime))
 
                     // DB에 추가
-                    val galleryImage = GalleryImage(imageUri = photoUri.toString(), timestamp = currentDateTime, position = i)
-                    viewLifecycleOwner.lifecycleScope.launch { galleryImageDao.insert(galleryImage)}
+                    val galleryImage = GalleryImage(userCode=userCode, imageUri = photoUri.toString(), timestamp = currentDateTime, position = i)
+                    viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO){
+                        galleryImageDao.insert(galleryImage)
+                    }
                 }
             }
             cameraLaunchers.add(cameraLauncher)
@@ -165,10 +189,10 @@ class GalleryFragment : Fragment(R.layout.fragment_gallery) {
     private fun loadImagesFromDatabase() {
         viewLifecycleOwner.lifecycleScope.launch {
             // DB에서 모든 이미지 로드
-            val allImages = galleryImageDao.getAllImages()
+            val userAllImages = galleryImageDao.getAllImagesByUserCode(userCode)
 
             // 이미지를 RecyclerView 어댑터에 추가
-            allImages.forEach(){ galleryImage ->
+            userAllImages.forEach(){ galleryImage ->
                 val imageUri = Uri.parse(galleryImage.imageUri)
                 val timestamp = galleryImage.timestamp
                 val position = galleryImage.position

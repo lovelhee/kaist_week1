@@ -1,16 +1,19 @@
 package com.example.madcampweek1.loginJh
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.madcampweek1.ApplicationUserCode
 import com.example.madcampweek1.R
-import com.example.madcampweek1.UserDatabase.User
-import com.example.madcampweek1.UserDatabase.UserInfoDatabase
+import com.example.madcampweek1.userInfoDatabase.UserInfo
 import com.example.madcampweek1.databinding.ActivityLoginJhBinding
 import com.example.madcampweek1.databinding.DialogSignUpBinding
+import com.example.madcampweek1.generalAppDatabase.GeneralAppDatabase
 import com.example.madcampweek1.member.MemberActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,24 +21,29 @@ import kotlinx.coroutines.withContext
 
 class LoginJhActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginJhBinding
-    private lateinit var db: UserInfoDatabase
+    private lateinit var db: GeneralAppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginJhBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        db = UserInfoDatabase.getDatabase(this)
+        db = GeneralAppDatabase.getInstance(this)
 
         binding.btnLogin.setOnClickListener {
             val id = binding.etId.text.toString()
             val password = binding.etPassWord.text.toString()
             lifecycleScope.launch {
                 val user = withContext(Dispatchers.IO) {
-                    db.userDao().getUserByCredentials(id, password)
+                    db.userInfoDao().getUserByCredentials(id, password)
                 }
                 if (user != null) {
                     Toast.makeText(this@LoginJhActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+
+                    // ApplicationUserCode에 userCode 저장
+                    val application = applicationContext as ApplicationUserCode
+                    application.userCode = user.userCode
+
                     val intent = Intent(this@LoginJhActivity, MemberActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -74,9 +82,9 @@ class LoginJhActivity : AppCompatActivity() {
                     Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
                 } else {
                     lifecycleScope.launch {
-                        val newUser = User(id = id, password = password, userType = userType)
+                        val newUserInfo = UserInfo(id = id, password = password, userType = userType)
                         withContext(Dispatchers.IO) {
-                            db.userDao().insertUser(newUser)
+                            db.userInfoDao().insertUser(newUserInfo)
                         }
                         Toast.makeText(this@LoginJhActivity, "회원가입 성공", Toast.LENGTH_SHORT).show()
                     }
