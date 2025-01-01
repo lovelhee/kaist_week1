@@ -5,7 +5,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -28,6 +30,9 @@ class MemberActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMemberBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val etName = findViewById<EditText>(R.id.etName)
+        val btnComplete = findViewById<Button>(R.id.btnComplete)
 
         binding.etName.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -95,10 +100,11 @@ class MemberActivity : AppCompatActivity() {
             val selectedVehicleBrand = getSelectedChipText()
             val emergencyContacts = getEmergencyContacts()
 
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MakeActivity::class.java)
             intent.putStringArrayListExtra("selectedInsurances", ArrayList(selectedInsurances))
             intent.putExtra("selectedVehicleBrand", selectedVehicleBrand)
             intent.putStringArrayListExtra("emergencyContacts", ArrayList(emergencyContacts))
+            intent.putExtra("USER_NAME", binding.etName.text.toString())
             startActivity(intent)
             finish()
         }
