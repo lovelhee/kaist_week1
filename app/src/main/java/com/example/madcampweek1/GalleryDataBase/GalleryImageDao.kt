@@ -14,4 +14,7 @@ interface GalleryImageDao {
 
     @Query("DELETE FROM gallery_images WHERE image_uri = :uri")
     suspend fun deleteByUri(uri: String)
+
+    @Query("SELECT * FROM gallery_images WHERE userCode = :userCode")
+    suspend fun getAllImagesByUserCode(userCode: Int): List<GalleryImage>
 }
