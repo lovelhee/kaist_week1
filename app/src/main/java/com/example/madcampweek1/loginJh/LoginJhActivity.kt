@@ -1,12 +1,20 @@
 package com.example.madcampweek1.loginJh
 
+
+import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.lifecycleScope
 import com.example.madcampweek1.ApplicationUserCode
 import com.example.madcampweek1.R
@@ -30,6 +38,12 @@ class LoginJhActivity : AppCompatActivity() {
 
         db = GeneralAppDatabase.getInstance(this)
 
+        // 애니메이션
+        startLogoAnimation()
+
+
+
+        // 로그인
         binding.btnLogin.setOnClickListener {
             val id = binding.etId.text.toString()
             val password = binding.etPassWord.text.toString()
@@ -59,6 +73,22 @@ class LoginJhActivity : AppCompatActivity() {
         }
     }
 
+    private fun startLogoAnimation() {
+        // ivLogo1
+        val ivLogo1Animator = ObjectAnimator.ofFloat(binding.ivLogo1, View.TRANSLATION_X, -1000f, 0f)
+        ivLogo1Animator.duration = 1000
+        ivLogo1Animator.interpolator = AccelerateDecelerateInterpolator()
+
+        // ivLogo2
+        val ivLogo2Animator = ObjectAnimator.ofFloat(binding.ivLogo2, View.TRANSLATION_X, 1000f, 0f)
+        ivLogo2Animator.duration = 1000
+        ivLogo2Animator.interpolator = AccelerateDecelerateInterpolator()
+
+        ivLogo1Animator.start()
+        ivLogo2Animator.start()
+    }
+
+    // 회원가입
     private fun showSignUpDialog() {
         val dialogBinding = DialogSignUpBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(this)
