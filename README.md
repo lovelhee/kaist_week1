@@ -130,7 +130,7 @@
 
 ## 🎬 05. 시연 영상
 
-- [시연 영상 보기](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/1fa54cef-f6a8-4261-b261-6569cac9c765/KakaoTalk_20250101_202913264.mp4)
+- [시연 영상 보기](https://file.notion.so/f/f/f6cb388f-3934-47d6-9928-26d2e10eb0fc/91a7fc49-b547-4f99-a239-20f3295fcf42/KakaoTalk_20250101_202913264.mp4?table=block&id=38713c64-793a-49e5-ad31-661415200679&spaceId=f6cb388f-3934-47d6-9928-26d2e10eb0fc&expirationTimestamp=1738713600000&signature=LAxIvCMjpXpTauyvKgZFnf5mOHsU0i6Y4bYkKDJESi8&downloadName=KakaoTalk_20250101_202913264.mp4)
 
 ---
 
